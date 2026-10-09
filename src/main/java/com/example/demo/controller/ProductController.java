@@ -28,6 +28,8 @@ public class ProductController {
     @GetMapping
     public ResponseEntity<List<Product>> getProducts(
             @RequestParam(required = false) String category,
+            @RequestParam(required = false) String brand,
+            @RequestParam(required = false) String brandOrigin,
             @RequestParam(required = false) BigDecimal minPrice,
             @RequestParam(required = false) BigDecimal maxPrice,
             @RequestParam(required = false) String q,
@@ -35,7 +37,7 @@ public class ProductController {
             @RequestParam(required = false) String color,
             @RequestParam(required = false) String sortBy
     ) {
-        return ResponseEntity.ok(productService.getAllProducts(category, minPrice, maxPrice, q, size, color, sortBy));
+        return ResponseEntity.ok(productService.getAllProducts(category, brand, brandOrigin, minPrice, maxPrice, q, size, color, sortBy));
     }
 
     @GetMapping("/{id}")
@@ -75,6 +77,16 @@ public class ProductController {
     @GetMapping("/category/{categorySlug}")
     public ResponseEntity<List<Product>> getByCategory(@PathVariable String categorySlug) {
         return ResponseEntity.ok(productService.getProductsByCategory(categorySlug));
+    }
+
+    @GetMapping("/brand/{brand}")
+    public ResponseEntity<List<Product>> getByBrand(@PathVariable String brand) {
+        return ResponseEntity.ok(productService.getProductsByBrand(brand));
+    }
+
+    @GetMapping("/brand-origin/{origin}")
+    public ResponseEntity<List<Product>> getByBrandOrigin(@PathVariable String origin) {
+        return ResponseEntity.ok(productService.getProductsByBrandOrigin(origin));
     }
 
     @GetMapping("/{id}/reviews")

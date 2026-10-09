@@ -12,6 +12,10 @@
   
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Leaflet Map CSS & JS (Google Maps style store locator) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
 <body>
 
@@ -20,14 +24,21 @@
     <div class="container top-bar-content">
       <div class="top-bar-left">
         <span>
-          <span class="top-bar-badge">YANGI</span>
-          Mavsumiy chegirmalar! Barcha $50 dan ortiq xaridlarga yetkazib berish BEPUL
+          <span class="top-bar-badge">HOT</span>
+          <span data-i18n="top_promo">Mavsumiy chegirmalar! Barcha $50 dan ortiq xaridlarga yetkazib berish BEPUL</span>
         </span>
       </div>
       <div class="top-bar-right">
-        <span>Kupon: <strong>WELCOME10</strong> (-10%)</span>
-        <a href="#catalogSection">Katalog</a>
-        <a href="tel:+998901234567">Qo'llab-quvvatlash</a>
+        <span><span data-i18n="top_coupon">Kupon:</span> <strong>WELCOME10</strong> (-10%)</span>
+        <a href="#storesSection" data-i18n="nav_stores">Do'konlarimiz</a>
+        <a href="tel:+998901234567" data-i18n="top_support">Qo'llab-quvvatlash</a>
+        
+        <!-- Language Switcher (UZ / RU / EN) -->
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="uz" onclick="setLanguage('uz')">UZ</button>
+          <button class="lang-btn" data-lang="ru" onclick="setLanguage('ru')">RU</button>
+          <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
+        </div>
       </div>
     </div>
   </aside>
@@ -43,13 +54,15 @@
 
       <!-- Navigation Links -->
       <nav class="nav-links">
-        <a href="#" class="nav-link active">Bosh sahifa</a>
-        <a href="#categoriesSection" class="nav-link">Kategoriyalar</a>
-        <a href="#trendingSection" class="nav-link">Ommabop</a>
+        <a href="#" class="nav-link active" data-i18n="nav_home">Bosh sahifa</a>
+        <a href="#categoriesSection" class="nav-link" data-i18n="nav_categories">Kategoriyalar</a>
+        <a href="#brandsSection" class="nav-link" data-i18n="nav_brands">Brendlar</a>
+        <a href="#trendingSection" class="nav-link" data-i18n="nav_trending">Ommabop</a>
         <a href="#dealSection" class="nav-link">
-          Aksiya <span class="nav-sale-tag">Hot</span>
+          <span data-i18n="nav_deal">Aksiya</span> <span class="nav-sale-tag">Hot</span>
         </a>
-        <a href="#catalogSection" class="nav-link">Katalog</a>
+        <a href="#catalogSection" class="nav-link" data-i18n="nav_catalog">Katalog</a>
+        <a href="#storesSection" class="nav-link" data-i18n="nav_stores">Do'konlarimiz</a>
       </nav>
 
       <!-- Search & User Actions -->
@@ -58,7 +71,7 @@
           <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
-          <input type="text" id="headerSearchInput" placeholder="Kiyim qidirish..." autocomplete="off">
+          <input type="text" id="headerSearchInput" placeholder="Kiyim qidirish..." data-i18n="search_placeholder" autocomplete="off">
         </div>
 
         <!-- Wishlist Button -->
@@ -84,33 +97,33 @@
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-content">
-        <div class="hero-badge">✨ Yangi Mavsum Kolleksiyasi 2026</div>
-        <h1 class="hero-title">
+        <div class="hero-badge" data-i18n="hero_badge">✨ Yangi Mavsum Kolleksiyasi 2026</div>
+        <h1 class="hero-title" data-i18n="hero_title">
           Nafis Uslub &amp; <span>Mukammal</span> Liboslar Dunyosi
         </h1>
-        <p class="hero-description">
+        <p class="hero-description" data-i18n="hero_desc">
           Yuqori sifatli tabiiy matolar, zamonaviy bichim va har bir detalga bo'lgan e'tibor. Kundalik va tantanali obrazlar uchun eksklyuziv modellar.
         </p>
         <div class="hero-actions">
-          <a href="#catalogSection" class="btn btn-primary">
+          <a href="#catalogSection" class="btn btn-primary" data-i18n="hero_btn_shop">
             Kolleksiyani ko'rish →
           </a>
-          <a href="#dealSection" class="btn btn-outline">
+          <a href="#dealSection" class="btn btn-outline" data-i18n="hero_btn_deal">
             Mavsumiy chegirmalar
           </a>
         </div>
         <div class="hero-stats">
           <div class="hero-stat-item">
             <h4>2,500+</h4>
-            <p>Mamnun xaridorlar</p>
+            <p data-i18n="hero_stat_clients">Mamnun xaridorlar</p>
           </div>
           <div class="hero-stat-item">
             <h4>100%</h4>
-            <p>Tabiiy matolar</p>
+            <p data-i18n="hero_stat_quality">Tabiiy matolar</p>
           </div>
           <div class="hero-stat-item">
             <h4>24/7</h4>
-            <p>Tezkor yetkazish</p>
+            <p data-i18n="hero_stat_delivery">Tezkor yetkazish</p>
           </div>
         </div>
       </div>
@@ -119,8 +132,8 @@
         <div class="hero-floating-card">
           <div class="floating-card-icon">★</div>
           <div class="floating-card-text">
-            <h5>Yuqori Baholangan Brend</h5>
-            <p>4.9 / 5.0 (1,200+ sharhlar)</p>
+            <h5 data-i18n="hero_float_title">Yuqori Baholangan Brend</h5>
+            <p data-i18n="hero_float_desc">4.9 / 5.0 (1,200+ sharhlar)</p>
           </div>
         </div>
       </div>
@@ -133,29 +146,29 @@
       <div class="feature-box">
         <div class="feature-icon-wrap">🚚</div>
         <div class="feature-info">
-          <h4>Bepul Yetkazib Berish</h4>
-          <p>$50 dan ortiq har qanday buyurtmaga</p>
+          <h4 data-i18n="feat_1_title">Bepul Yetkazib Berish</h4>
+          <p data-i18n="feat_1_desc">$50 dan ortiq har qanday buyurtmaga</p>
         </div>
       </div>
       <div class="feature-box">
         <div class="feature-icon-wrap">🛡️</div>
         <div class="feature-info">
-          <h4>100% Sifat Kafolati</h4>
-          <p>Sertifikatlangan premium materiallar</p>
+          <h4 data-i18n="feat_2_title">100% Sifat Kafolati</h4>
+          <p data-i18n="feat_2_desc">Sertifikatlangan premium materiallar</p>
         </div>
       </div>
       <div class="feature-box">
         <div class="feature-icon-wrap">🔄</div>
         <div class="feature-info">
-          <h4>14 Kunlik Qaytarish</h4>
-          <p>O'lcham to'g'ri kelmasa oson almashtirish</p>
+          <h4 data-i18n="feat_3_title">14 Kunlik Qaytarish</h4>
+          <p data-i18n="feat_3_desc">O'lcham to'g'ri kelmasa oson almashtirish</p>
         </div>
       </div>
       <div class="feature-box">
         <div class="feature-icon-wrap">💬</div>
         <div class="feature-info">
-          <h4>24/7 Qo'llab-quvvatlash</h4>
-          <p>Doimiy yordam va konsultatsiya</p>
+          <h4 data-i18n="feat_4_title">24/7 Qo'llab-quvvatlash</h4>
+          <p data-i18n="feat_4_desc">Doimiy yordam va konsultatsiya</p>
         </div>
       </div>
     </div>
@@ -165,12 +178,39 @@
   <section class="section" id="categoriesSection">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Katalog Bo'limlari</span>
-        <h2 class="section-title">Kategoriya Bo'yicha Tanlang</h2>
-        <p class="section-subtitle">O'zingizga mos uslubdagi kiyimlar va aksessuarlarni toping</p>
+        <span class="section-tag" data-i18n="cat_tag">Katalog Bo'limlari</span>
+        <h2 class="section-title" data-i18n="cat_title">Kategoriya Bo'yicha Tanlang</h2>
+        <p class="section-subtitle" data-i18n="cat_sub">O'zingizga mos uslubdagi kiyimlar va aksessuarlarni toping</p>
       </div>
       <div class="categories-grid" id="categoriesGrid">
         <!-- Dynamic Category Cards rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Brands Section (Turkiya & Italiya Brendlari) -->
+  <section class="section brands-section" id="brandsSection">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="brands_tag">Xalqaro Moda Uylari</span>
+        <h2 class="section-title" data-i18n="brands_title">Turkiya &amp; Italiya Brendlari</h2>
+        <p class="section-subtitle" data-i18n="brands_sub">Italiya nafisligi va Turkiyaning yuqori sifatli to'qimachilik an'analari uyg'unlashgan original liboslar to'plami</p>
+      </div>
+
+      <div class="brands-filter-nav" id="brandNavFilters">
+        <button class="brand-nav-btn active" data-brand-origin="all" onclick="filterBrandsByOrigin('all')">
+          <span data-i18n="brand_nav_all">Barcha Brendlar</span>
+        </button>
+        <button class="brand-nav-btn" data-brand-origin="Turkiya" onclick="filterBrandsByOrigin('Turkiya')">
+          <span>🇹🇷</span> <span data-i18n="brand_nav_turkey">Turk Brendlari</span>
+        </button>
+        <button class="brand-nav-btn" data-brand-origin="Italiya" onclick="filterBrandsByOrigin('Italiya')">
+          <span>🇮🇹</span> <span data-i18n="brand_nav_italy">Italiya Brendlari</span>
+        </button>
+      </div>
+
+      <div class="brands-grid" id="brandsGrid">
+        <!-- Rendered dynamically via JS -->
       </div>
     </div>
   </section>
@@ -179,18 +219,18 @@
   <section class="section" id="trendingSection" style="background-color: #fff;">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Eng Sara Tanlov</span>
-        <h2 class="section-title">Ommabop Liboslar</h2>
-        <p class="section-subtitle">Mijozlarimiz eng ko'p tanlayotgan va yuqori baholagan liboslar</p>
+        <span class="section-tag" data-i18n="trend_tag">Eng Sara Tanlov</span>
+        <h2 class="section-title" data-i18n="trend_title">Ommabop Liboslar</h2>
+        <p class="section-subtitle" data-i18n="trend_sub">Mijozlarimiz eng ko'p tanlayotgan va yuqori baholagan liboslar</p>
       </div>
 
       <!-- Tab Buttons -->
       <div class="tabs-container">
-        <button class="tab-btn active" data-tab="all">Barchasi</button>
-        <button class="tab-btn" data-tab="featured">Tavsiya etilgan</button>
-        <button class="tab-btn" data-tab="new">Yangi kelganlar</button>
-        <button class="tab-btn" data-tab="bestseller">Top sotilganlar</button>
-        <button class="tab-btn" data-tab="deal">Katta chegirma</button>
+        <button class="tab-btn active" data-tab="all" data-i18n="tab_all">Barchasi</button>
+        <button class="tab-btn" data-tab="featured" data-i18n="tab_featured">Tavsiya etilgan</button>
+        <button class="tab-btn" data-tab="new" data-i18n="tab_new">Yangi kelganlar</button>
+        <button class="tab-btn" data-tab="bestseller" data-i18n="tab_bestseller">Top sotilganlar</button>
+        <button class="tab-btn" data-tab="deal" data-i18n="tab_deal">Katta chegirma</button>
       </div>
 
       <!-- Products Grid -->
@@ -205,9 +245,9 @@
     <div class="deal-section">
       <div class="deal-grid">
         <div class="deal-content">
-          <span class="deal-badge">Faqat Bugun Chegirma</span>
-          <h2 class="deal-title">Kuzgi Maxsus To'plamga 30% Gacha Chegirma!</h2>
-          <p class="deal-desc">
+          <span class="deal-badge" data-i18n="deal_badge">Faqat Bugun Chegirma</span>
+          <h2 class="deal-title" data-i18n="deal_title">Kuzgi Maxsus To'plamga 30% Gacha Chegirma!</h2>
+          <p class="deal-desc" data-i18n="deal_desc">
             Cheklangan miqdordagi premium trençkotlar va ipak liboslar uchun eksklyuziv narxlar. Aksiya tugashiga oz vaqt qoldi.
           </p>
           <div class="countdown-box">
@@ -224,7 +264,7 @@
               <div class="countdown-label">Sekund</div>
             </div>
           </div>
-          <button class="btn btn-accent" onclick="scrollToShop()">
+          <button class="btn btn-accent" onclick="scrollToShop()" data-i18n="deal_btn">
             Aksiyadan Foydalanish →
           </button>
         </div>
@@ -239,22 +279,22 @@
   <section class="section" id="catalogSection">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">To'liq Mahsulotlar</span>
-        <h2 class="section-title">Barcha Liboslar Katalogi</h2>
-        <p class="section-subtitle">O'zingizga ma'qul narx, o'lcham va kategoriya bo'yicha saralang</p>
+        <span class="section-tag" data-i18n="catalog_tag">To'liq Mahsulotlar</span>
+        <h2 class="section-title" data-i18n="catalog_title">Barcha Liboslar Katalogi</h2>
+        <p class="section-subtitle" data-i18n="catalog_sub">O'zingizga ma'qul narx, o'lcham va kategoriya bo'yicha saralang</p>
       </div>
 
       <div class="catalog-layout">
         <!-- Sidebar Filters -->
         <aside class="filter-sidebar">
           <div class="filter-header">
-            <h3>Filtrlar</h3>
-            <button class="btn-clear-filter" onclick="clearAllFilters()">Tozalash</button>
+            <h3 data-i18n="filter_title">Filtrlar</h3>
+            <button class="btn-clear-filter" onclick="clearAllFilters()" data-i18n="filter_clear">Tozalash</button>
           </div>
 
           <!-- Category Filter -->
           <div class="filter-group">
-            <h4 class="filter-group-title">Kategoriyalar</h4>
+            <h4 class="filter-group-title" data-i18n="filter_cat_title">Kategoriyalar</h4>
             <ul class="category-filter-list" id="categoryFilterList">
               <!-- Rendered via JS -->
             </ul>
@@ -262,7 +302,7 @@
 
           <!-- Price Range Filter -->
           <div class="filter-group">
-            <h4 class="filter-group-title">Narx Oralig'i ($)</h4>
+            <h4 class="filter-group-title" data-i18n="filter_price_title">Narx Oralig'i ($)</h4>
             <div class="price-range-inputs">
               <input type="number" id="minPriceInput" class="price-input" placeholder="Min" min="0">
               <span>-</span>
@@ -272,7 +312,7 @@
 
           <!-- Size Filter -->
           <div class="filter-group">
-            <h4 class="filter-group-title">O'lcham</h4>
+            <h4 class="filter-group-title" data-i18n="filter_size_title">O'lcham</h4>
             <div class="size-chips" id="sizeFilterChips">
               <button class="size-chip">XS</button>
               <button class="size-chip">S</button>
@@ -282,6 +322,24 @@
               <button class="size-chip">XXL</button>
             </div>
           </div>
+
+          <!-- Brand Origin Filter (Turkiya & Italiya) -->
+          <div class="filter-group">
+            <h4 class="filter-group-title" data-i18n="filter_origin_title">Brend Mamlakati</h4>
+            <div class="brand-origin-pills" id="sidebarOriginPills">
+              <button class="brand-origin-pill active" data-sidebar-origin="all" onclick="filterByBrandOrigin('all')">Barchasi</button>
+              <button class="brand-origin-pill" data-sidebar-origin="Turkiya" onclick="filterByBrandOrigin('Turkiya')">🇹🇷 Turkiya</button>
+              <button class="brand-origin-pill" data-sidebar-origin="Italiya" onclick="filterByBrandOrigin('Italiya')">🇮🇹 Italiya</button>
+            </div>
+          </div>
+
+          <!-- Brand Selection Chips -->
+          <div class="filter-group">
+            <h4 class="filter-group-title" data-i18n="filter_brand_title">Mashhur Brendlar</h4>
+            <div class="brand-chips" id="brandFilterChips">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
         </aside>
 
         <!-- Catalog Products Area -->
@@ -289,7 +347,7 @@
           <div class="catalog-top-bar">
             <span id="catalogProductCount" style="font-size: 14px; font-weight: 600; color: var(--secondary);">0 ta mahsulot topildi</span>
             <div class="catalog-sort-wrap">
-              <label for="catalogSortSelect" style="font-size: 13px; font-weight: 600;">Saralash:</label>
+              <label for="catalogSortSelect" style="font-size: 13px; font-weight: 600;" data-i18n="sort_label">Saralash:</label>
               <select id="catalogSortSelect" class="sort-select">
                 <option value="featured">Tavsiya etilgan</option>
                 <option value="price-low-high">Narx: Arzondan qimmatga</option>
@@ -304,6 +362,108 @@
             <!-- Rendered dynamically via JS -->
           </div>
         </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- Store Locations / Do'konlarimiz Section (Google Maps Interactive Store Locator) -->
+  <section class="section stores-section" id="storesSection">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="stores_tag">Google Maps &amp; Lokatsiyalar</span>
+        <h2 class="section-title" data-i18n="stores_title">Do'konlarimiz, VIP Brand &amp; Caber Brand Xaritasi</h2>
+        <p class="section-subtitle" data-i18n="stores_sub">
+          Google Maps xaritasida barcha butiklarimiz, jumladan eksklyuziv <strong>VIP Brand</strong> va <strong>Caber Brand</strong> filiallarini aniq ko'ring. Do'konni tanlang va qulay marshrut oling!
+        </p>
+      </div>
+
+      <!-- Store Filters & Search Bar -->
+      <div class="stores-top-actions">
+        <div class="store-brand-city-pills" id="storeFilterPills">
+          <button class="store-filter-pill active" data-store-filter="all" onclick="filterStores('all')">
+            🌐 Barcha Do'konlar (<span id="countAllStores">0</span>)
+          </button>
+          <button class="store-filter-pill pill-vip" data-store-filter="vip" onclick="filterStores('vip')">
+            ⭐ VIP Brand Butiklari (<span id="countVipStores">0</span>)
+          </button>
+          <button class="store-filter-pill pill-caber" data-store-filter="caber" onclick="filterStores('caber')">
+            ⚡ Caber Brand Do'konlari (<span id="countCaberStores">0</span>)
+          </button>
+          <button class="store-filter-pill" data-store-filter="Toshkent" onclick="filterStores('Toshkent')">
+            📍 Toshkent
+          </button>
+          <button class="store-filter-pill" data-store-filter="Samarqand" onclick="filterStores('Samarqand')">
+            📍 Samarqand
+          </button>
+          <button class="store-filter-pill" data-store-filter="Buxoro" onclick="filterStores('Buxoro')">
+            📍 Buxoro
+          </button>
+          <button class="store-filter-pill" data-store-filter="vodiy" onclick="filterStores('vodiy')">
+            📍 Farg'ona vodiysi
+          </button>
+        </div>
+
+        <div class="store-search-and-btn">
+          <div class="store-search-box">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+            <input type="text" id="storeSearchInput" placeholder="Do'kon nomi, brend yoki manzil..." oninput="handleStoreSearch(event)">
+          </div>
+          <button class="btn btn-primary" onclick="openModal('addStoreModal')">
+            <span data-i18n="stores_btn_add">+ Yangi Do'kon Qo'shish</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Google Maps Interactive Container -->
+      <div class="stores-map-wrapper">
+        <div class="map-toolbar">
+          <div class="map-toolbar-brand">
+            <div class="map-g-logo">
+              <span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span>
+              <span class="map-g-text">Maps</span>
+            </div>
+            <span class="map-status-pill" id="mapStatusPill">10 ta do'kon faol</span>
+          </div>
+
+          <div class="map-toolbar-center">
+            <span class="map-hint-text">💡 Xaritadagi pinlarni bosib do'konni tanlang yoki ro'yxatdan "Xaritada ko'rish" tugmasini bosing</span>
+          </div>
+
+          <div class="map-toolbar-actions">
+            <button class="map-tool-btn" onclick="fitAllStoreBounds()" title="Barcha do'konlarni xaritada ko'rsatish">
+              <span>🔍</span> Fit Stores
+            </button>
+            <button class="map-tool-btn" onclick="focusStoreCity('Toshkent')" title="Toshkent do'konlariga o'tish">
+              <span>🏛️</span> Toshkent
+            </button>
+            <button class="map-tool-btn" onclick="toggleMapLayer()" id="mapLayerToggleBtn" title="Xarita qatlamini o'zgartirish">
+              <span>🗺️</span> Xarita: Google Standart
+            </button>
+          </div>
+        </div>
+
+        <!-- The Map Element -->
+        <div id="storesMap" class="stores-map-canvas"></div>
+
+        <!-- Active Store Quick Banner below map -->
+        <div class="active-store-banner" id="activeStoreBanner" style="display: none;">
+          <div class="asb-left">
+            <span class="asb-badge" id="asbBadge">VIP Brand</span>
+            <strong id="asbTitle">Do'kon nomi</strong> &bull; <span id="asbAddress">Manzil</span>
+          </div>
+          <div class="asb-right">
+            <a href="#" id="asbMapLink" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-accent">
+              Google Maps da Marshrut Olish ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dynamic Stores Cards Grid -->
+      <div class="stores-grid" id="storesGrid">
+        <!-- Rendered dynamically via JS -->
       </div>
     </div>
   </section>
@@ -403,13 +563,14 @@
         </div>
 
         <div class="footer-col">
-          <h4>Mijozlarga Yordam</h4>
+          <h4 data-i18n="nav_stores">Do'konlarimiz</h4>
           <ul class="footer-links">
-            <li><a href="#">Yetkazib berish shartlari</a></li>
-            <li><a href="#">Mahsulotni qaytarish</a></li>
-            <li><a href="#">O'lchamlar jadvali</a></li>
-            <li><a href="#">To'lov usullari</a></li>
-            <li><a href="#">Ko'p beriladigan savollar</a></li>
+            <li><a href="#storesSection" onclick="filterStores('vip')">⭐ VIP Brand Butiklari</a></li>
+            <li><a href="#storesSection" onclick="filterStores('caber')">⚡ Caber Brand Cyber Do'konlari</a></li>
+            <li><a href="#storesSection" onclick="filterStores('Toshkent')">Toshkent (Flagship & City)</a></li>
+            <li><a href="#storesSection" onclick="filterStores('Samarqand')">Samarqand Registon</a></li>
+            <li><a href="#storesSection" onclick="filterStores('vodiy')">Farg'ona, Andijon, Namangan</a></li>
+            <li><a href="javascript:void(0)" onclick="openModal('addStoreModal')">+ Yangi filial qo'shish</a></li>
           </ul>
         </div>
 
@@ -417,10 +578,9 @@
           <h4>Kompaniya</h4>
           <ul class="footer-links">
             <li><a href="#">Biz haqimizda</a></li>
-            <li><a href="#">Do'konlarimiz</a></li>
+            <li><a href="#storesSection">Do'konlarimiz</a></li>
             <li><a href="#">Karyera</a></li>
             <li><a href="#">Maxfiylik siyosati</a></li>
-            <li><a href="#">Foydalanish qoidalari</a></li>
           </ul>
         </div>
       </div>
@@ -440,7 +600,7 @@
   <!-- Cart Slide-Over Drawer -->
   <div class="drawer" id="cartDrawer">
     <div class="drawer-header">
-      <h3>Xarid Savatingiz</h3>
+      <h3 data-i18n="cart_title">Xarid Savatingiz</h3>
       <button class="modal-close-btn" onclick="closeDrawer('cartDrawer')">✕</button>
     </div>
     <div class="drawer-body" id="cartItemsList">
@@ -449,25 +609,25 @@
     <div class="drawer-footer">
       <div class="coupon-box">
         <input type="text" id="couponCodeInput" placeholder="Kupon kodi (Masalan: WELCOME10)">
-        <button onclick="applyCoupon()">Qo'llash</button>
+        <button onclick="applyCoupon()" data-i18n="cart_coupon_btn">Qo'llash</button>
       </div>
       <div class="cart-summary-line">
-        <span>Oraliq jami:</span>
+        <span data-i18n="cart_subtotal">Oraliq jami:</span>
         <span id="cartSubtotal">$0.00</span>
       </div>
       <div class="cart-summary-line">
-        <span>Chegirma:</span>
+        <span data-i18n="cart_discount">Chegirma:</span>
         <span id="cartDiscount" style="color: var(--success);">- $0.00</span>
       </div>
       <div class="cart-summary-line">
-        <span>Yetkazib berish:</span>
+        <span data-i18n="cart_shipping">Yetkazib berish:</span>
         <span id="cartShipping">$0.00</span>
       </div>
       <div class="cart-summary-line total">
-        <span>Jami summa:</span>
+        <span data-i18n="cart_total">Jami summa:</span>
         <span id="cartTotal">$0.00</span>
       </div>
-      <button class="btn btn-accent" style="width: 100%; margin-top: 14px;" onclick="openCheckoutModal()">
+      <button class="btn btn-accent" style="width: 100%; margin-top: 14px;" onclick="openCheckoutModal()" data-i18n="cart_checkout_btn">
         Rasmiylashtirishga o'tish →
       </button>
     </div>
@@ -483,15 +643,117 @@
     </div>
   </div>
 
+  <!-- Modal: Yangi Do'kon Qo'shish (Manual Store Entry Modal) -->
+  <div class="modal-overlay" id="addStoreModal">
+    <div class="modal-box" style="max-width: 680px;">
+      <button class="modal-close-btn" onclick="closeModal('addStoreModal')">✕</button>
+      <div class="checkout-box">
+        <h2 style="font-family: var(--font-serif); font-size: 24px; font-weight: 800; margin-bottom: 6px;" data-i18n="store_modal_title">
+          Yangi Do'kon Manzilini Kiritish
+        </h2>
+        <p style="color: var(--text-muted); font-size: 13.5px; margin-bottom: 22px;" data-i18n="store_modal_sub">
+          Do'kon nomi, shahar va aniq lokatsiya ma'lumotlarini qo'lda kiriting
+        </p>
+
+        <form id="addStoreForm" onsubmit="handleAddStoreSubmit(event)">
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label class="form-label">Do'kon Nomi (O'zbekcha) *</label>
+              <input type="text" name="nameUz" class="form-input" placeholder="Masalan: Farg'ona Markaziy Do'koni" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Название (Русский)</label>
+              <input type="text" name="nameRu" class="form-input" placeholder="Ферганский центральный магазин">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Name (English)</label>
+              <input type="text" name="nameEn" class="form-input" placeholder="Fergana Central Boutique">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Brend Turi / Бренд *</label>
+              <select name="brandType" class="form-input" style="background:#fff;">
+                <option value="VELVET & CO.">VELVET &amp; CO. Flagship</option>
+                <option value="VIP Brand">⭐ VIP Brand Boutique</option>
+                <option value="Caber Brand">⚡ Caber Brand Cyber Store</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Shahar / Город / City *</label>
+              <input type="text" name="city" class="form-input" placeholder="Toshkent, Samarqand, Farg'ona..." required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Telefon Raqami *</label>
+              <input type="text" name="phone" class="form-input" placeholder="+998 (90) 123-45-67" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Kenglik (Latitude - Xarita uchun)</label>
+              <input type="number" step="any" name="lat" class="form-input" placeholder="Masalan: 41.3110">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Uzunlik (Longitude - Xarita uchun)</label>
+              <input type="number" step="any" name="lng" class="form-input" placeholder="Masalan: 69.2797">
+            </div>
+
+            <div class="form-group full-width">
+              <label class="form-label">Aniq Manzil (O'zbekcha) *</label>
+              <input type="text" name="addressUz" class="form-input" placeholder="Al-Farg'oniy ko'chasi, 25-uy" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Адрес (Русский)</label>
+              <input type="text" name="addressRu" class="form-input" placeholder="улица Аль-Фергани, дом 25">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Address (English)</label>
+              <input type="text" name="addressEn" class="form-input" placeholder="25 Al-Fergani Street">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Mo'ljal (Landmark)</label>
+              <input type="text" name="landmark" class="form-input" placeholder="Markaziy xiyobon yonida">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Ish Vaqti (Hours)</label>
+              <input type="text" name="workingHours" class="form-input" placeholder="09:00 - 21:00" value="09:00 - 21:00">
+            </div>
+
+            <div class="form-group full-width">
+              <label class="form-label">Xarita havolasi (Google Maps yoki Yandex Maps URL)</label>
+              <input type="url" name="mapUrl" class="form-input" placeholder="https://maps.google.com/?q=40.3842,71.7843">
+            </div>
+
+            <div class="form-group full-width">
+              <label class="form-label">Rasm havolasi (Do'kon fotosurati URL)</label>
+              <input type="url" name="imageUrl" class="form-input" placeholder="https://images.unsplash.com/photo-1441986300917-64674bd600d8...">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-accent" style="width: 100%; padding: 14px; font-size: 15px; font-weight: 700;">
+            Do'konni Saqlash / Сохранить магазин
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <!-- Checkout Modal -->
   <div class="modal-overlay" id="checkoutModal">
     <div class="modal-box" style="max-width: 650px;">
       <button class="modal-close-btn" onclick="closeModal('checkoutModal')">✕</button>
       <div class="checkout-box">
-        <h2 style="font-family: var(--font-serif); font-size: 26px; font-weight: 800; margin-bottom: 8px;">
+        <h2 style="font-family: var(--font-serif); font-size: 26px; font-weight: 800; margin-bottom: 8px;" data-i18n="checkout_title">
           Buyurtmani Rasmiylashtirish
         </h2>
-        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px;">
+        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px;" data-i18n="checkout_sub">
           Yetkazib berish ma'lumotlaringizni to'ldiring
         </p>
 
@@ -538,7 +800,7 @@
             </div>
           </div>
 
-          <button type="submit" class="btn btn-accent" style="width: 100%; padding: 14px; font-size: 16px;">
+          <button type="submit" class="btn btn-accent" style="width: 100%; padding: 14px; font-size: 16px;" data-i18n="checkout_btn">
             Buyurtmani tasdiqlash
           </button>
         </form>

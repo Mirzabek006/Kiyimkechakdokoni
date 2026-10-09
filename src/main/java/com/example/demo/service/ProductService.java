@@ -19,13 +19,21 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public List<Product> getAllProducts(String categorySlug, BigDecimal minPrice, BigDecimal maxPrice,
+    public List<Product> getAllProducts(String categorySlug, String brand, String brandOrigin,
+                                        BigDecimal minPrice, BigDecimal maxPrice,
                                         String query, String size, String color, String sortBy) {
+        String cleanCategory = (categorySlug != null && !categorySlug.isBlank()) ? categorySlug.trim() : null;
+        String cleanBrand = (brand != null && !brand.isBlank() && !brand.equalsIgnoreCase("all")) ? brand.trim() : null;
+        String cleanBrandOrigin = (brandOrigin != null && !brandOrigin.isBlank() && !brandOrigin.equalsIgnoreCase("all")) ? brandOrigin.trim() : null;
+        String cleanQuery = (query != null && !query.isBlank()) ? query.trim() : null;
+
         List<Product> products = productRepository.searchProducts(
-                (categorySlug != null && !categorySlug.isBlank()) ? categorySlug : null,
+                cleanCategory,
+                cleanBrand,
+                cleanBrandOrigin,
                 minPrice,
                 maxPrice,
-                (query != null && !query.isBlank()) ? query.trim() : null
+                cleanQuery
         );
 
         // Filter by size if requested
@@ -61,6 +69,11 @@ public class ProductService {
         return products;
     }
 
+    public List<Product> getAllProducts(String categorySlug, BigDecimal minPrice, BigDecimal maxPrice,
+                                        String query, String size, String color, String sortBy) {
+        return getAllProducts(categorySlug, null, null, minPrice, maxPrice, query, size, color, sortBy);
+    }
+
     public Optional<Product> getProductById(Long id) {
         return productRepository.findById(id);
     }
@@ -87,5 +100,13 @@ public class ProductService {
 
     public List<Product> getProductsByCategory(String categorySlug) {
         return productRepository.findByCategorySlug(categorySlug);
+    }
+
+    public List<Product> getProductsByBrand(String brand) {
+        return productRepository.findByBrandIgnoreCase(brand);
+    }
+
+    public List<Product> getProductsByBrandOrigin(String brandOrigin) {
+        return productRepository.findByBrandOriginIgnoreCase(brandOrigin);
     }
 }

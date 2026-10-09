@@ -1637,3 +1637,885 @@ img {
     font-size: 36px;
   }
 }
+
+/* ==================== LANGUAGE SWITCHER ==================== */
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  padding: 2px 4px;
+  gap: 2px;
+}
+
+.lang-btn {
+  background: transparent;
+  color: #d1d5db;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+
+.lang-btn:hover {
+  color: #fff;
+}
+
+.lang-btn.active {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* ==================== STORES SECTION & GOOGLE MAPS LOCATOR ==================== */
+.stores-section {
+  background: #f8fafc;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 80px 0;
+}
+
+.stores-top-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.store-brand-city-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.store-filter-pill {
+  background: #fff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: var(--radius-full);
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #334155;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition);
+}
+
+.store-filter-pill:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.store-filter-pill.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.15);
+}
+
+.store-filter-pill.pill-vip.active {
+  background: #d97706;
+  border-color: #d97706;
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.3);
+}
+
+.store-filter-pill.pill-caber.active {
+  background: #0284c7;
+  border-color: #0284c7;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
+}
+
+.store-search-and-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.store-search-box {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: var(--radius-full);
+  padding: 6px 16px;
+  gap: 8px;
+  transition: var(--transition);
+}
+
+.store-search-box:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.08);
+}
+
+.store-search-box input {
+  border: none;
+  outline: none;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text-dark);
+  width: 220px;
+}
+
+/* ==================== GOOGLE MAPS INTERACTIVE WRAPPER ==================== */
+.stores-map-wrapper {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid #cbd5e1;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 36px;
+  display: flex;
+  flex-direction: column;
+}
+
+.map-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: #fff;
+  border-bottom: 1px solid #e2e8f0;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.map-toolbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.map-g-logo {
+  font-family: 'Product Sans', system-ui, -apple-system, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.map-g-text {
+  color: #5f6368;
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+.map-status-pill {
+  font-size: 11.5px;
+  font-weight: 700;
+  background: #ecfdf5;
+  color: #059669;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid #a7f3d0;
+}
+
+.map-toolbar-center {
+  font-size: 12.5px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.map-toolbar-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.map-tool-btn {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 700;
+  color: #334155;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: var(--transition);
+}
+
+.map-tool-btn:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  color: var(--primary);
+}
+
+.stores-map-canvas {
+  height: 480px;
+  width: 100%;
+  background: #e2e8f0;
+  position: relative;
+  z-index: 5;
+}
+
+/* Active Store Quick Banner below map */
+.active-store-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: linear-gradient(90deg, #f8fafc 0%, #ffffff 100%);
+  border-top: 1px solid #e2e8f0;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.asb-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: var(--primary);
+}
+
+.asb-badge {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.3px;
+}
+
+.asb-badge.badge-vip {
+  background: #fef3c7;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
+.asb-badge.badge-caber {
+  background: #cffafe;
+  color: #0e7490;
+  border: 1px solid #a5f3fc;
+}
+
+.asb-badge.badge-velvet {
+  background: #f1f5f9;
+  color: #1e293b;
+  border: 1px solid #e2e8f0;
+}
+
+/* ==================== CUSTOM MAP PINS (LEAFLET) ==================== */
+.custom-map-pin-wrapper {
+  background: transparent !important;
+  border: none !important;
+}
+
+.custom-map-pin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+.custom-map-pin:hover {
+  transform: scale(1.15) translateY(-3px);
+  z-index: 999 !important;
+}
+
+.custom-map-pin .pin-badge {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 20px;
+  color: #fff;
+  border: 2px solid #fff;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+.custom-map-pin .pin-point {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  margin-top: -1px;
+}
+
+/* VIP Pin (Gold luxury) */
+.pin-vip .pin-badge {
+  background: linear-gradient(135deg, #f59e0b, #b45309);
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
+.pin-vip .pin-point {
+  border-top: 8px solid #b45309;
+}
+
+/* Caber Pin (Cyber neon cyan) */
+.pin-caber .pin-badge {
+  background: linear-gradient(135deg, #06b6d4, #0369a1);
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+}
+.pin-caber .pin-point {
+  border-top: 8px solid #0369a1;
+}
+
+/* Velvet Flagship Pin */
+.pin-velvet .pin-badge {
+  background: linear-gradient(135deg, #111827, #374151);
+}
+.pin-velvet .pin-point {
+  border-top: 8px solid #111827;
+}
+
+/* Leaflet Popup GMaps Styling */
+.gmaps-style-popup .leaflet-popup-content-wrapper {
+  padding: 0 !important;
+  border-radius: var(--radius-md) !important;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2) !important;
+  border: 1px solid #e2e8f0;
+}
+
+.gmaps-style-popup .leaflet-popup-content {
+  margin: 0 !important;
+  line-height: 1.4;
+}
+
+.map-popup-card {
+  width: 290px;
+  font-family: var(--font-main);
+}
+
+.mpc-img-wrap {
+  position: relative;
+  height: 130px;
+  background: #e2e8f0;
+}
+
+.mpc-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mpc-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 10.5px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.3px;
+}
+
+.mpc-content {
+  padding: 14px 16px;
+}
+
+.mpc-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.mpc-rating {
+  font-size: 12px;
+  font-weight: 700;
+  color: #d97706;
+  margin-bottom: 10px;
+}
+
+.mpc-reviews {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.mpc-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12.5px;
+  color: #475569;
+  margin-bottom: 6px;
+}
+
+.mpc-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.mpc-actions {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.mpc-btn-gmaps {
+  display: block;
+  background: #0f172a;
+  color: #fff !important;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+.mpc-btn-gmaps:hover {
+  background: var(--accent);
+}
+
+/* ==================== STORE CARDS GRID ==================== */
+.stores-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.store-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  position: relative;
+}
+
+.store-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: #cbd5e1;
+}
+
+.store-card.active-store-card {
+  border: 2px solid var(--accent) !important;
+  box-shadow: 0 0 0 4px rgba(224, 93, 56, 0.15), var(--shadow-lg) !important;
+  transform: translateY(-2px);
+}
+
+.store-card.store-badge-vip {
+  border-top: 4px solid #d97706;
+}
+
+.store-card.store-badge-caber {
+  border-top: 4px solid #0284c7;
+}
+
+.store-card.store-badge-velvet {
+  border-top: 4px solid var(--primary);
+}
+
+.store-img-wrap {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  background: #e2e8f0;
+}
+
+.store-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.store-card:hover .store-img-wrap img {
+  transform: scale(1.06);
+}
+
+.store-brand-pill {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.store-brand-pill.store-badge-vip {
+  background: #d97706;
+  color: #fff;
+}
+
+.store-brand-pill.store-badge-caber {
+  background: #0284c7;
+  color: #fff;
+}
+
+.store-brand-pill.store-badge-velvet {
+  background: #111827;
+  color: #fff;
+}
+
+.store-city-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(17, 24, 39, 0.8);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+.store-content {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.store-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.35;
+}
+
+.store-rating-tag {
+  font-size: 12px;
+  font-weight: 700;
+  color: #d97706;
+  background: #fef3c7;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.store-meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 16px 0 20px 0;
+  flex-grow: 1;
+}
+
+.store-meta-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--secondary);
+  line-height: 1.45;
+}
+
+.store-meta-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+.store-meta-item strong {
+  color: var(--primary);
+}
+
+.store-actions {
+  display: flex;
+  gap: 8px;
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+  align-items: center;
+}
+
+.btn-locate-map {
+  flex-grow: 1;
+  background: #e05d38;
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: var(--transition);
+}
+
+.btn-locate-map:hover {
+  background: #c94b27;
+  transform: translateY(-1px);
+}
+
+.btn-map-link {
+  background: #0f172a;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-map-link:hover {
+  background: var(--primary-hover);
+}
+
+.btn-delete-store {
+  background: #fee2e2;
+  color: #ef4444;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.btn-delete-store:hover {
+  background: #fecaca;
+}
+
+@media (max-width: 992px) {
+  .stores-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .stores-grid {
+    grid-template-columns: 1fr;
+  }
+  .stores-map-canvas {
+    height: 380px;
+  }
+  .map-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .store-search-box input {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   BRANDS SECTION & BRAND STYLES (Turkiya & Italiya)
+   ========================================================================== */
+.product-brand-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #f8fafc;
+  color: #1e293b;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 30px;
+  margin-bottom: 6px;
+  border: 1px solid #e2e8f0;
+  letter-spacing: 0.3px;
+}
+
+.product-brand-tag .brand-country {
+  color: #64748b;
+  font-weight: 500;
+  font-size: 10px;
+  margin-left: 2px;
+}
+
+.brands-section {
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  padding: 80px 0;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.brands-filter-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
+
+.brand-nav-btn {
+  background: #fff;
+  border: 1.5px solid #cbd5e1;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.brand-nav-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.brand-nav-btn.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
+}
+
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.brand-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: 24px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.brand-card.origin-tr::before {
+  background: #e11d48;
+}
+
+.brand-card.origin-it::before {
+  background: #16a34a;
+}
+
+.brand-card:hover {
+  transform: translateY(-5px);
+  border-color: #cbd5e1;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.brand-card.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.brand-flag-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.brand-card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.brand-card-country {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.brand-card-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.brand-card-action {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Sidebar Brand Chips */
+.brand-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.brand-chip {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.brand-chip:hover {
+  background: #e2e8f0;
+  color: var(--primary);
+}
+
+.brand-chip.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.brand-origin-pills {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.brand-origin-pill {
+  flex: 1;
+  text-align: center;
+  padding: 8px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1.5px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.brand-origin-pill:hover {
+  border-color: var(--primary);
+}
+
+.brand-origin-pill.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+

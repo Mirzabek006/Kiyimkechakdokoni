@@ -65,6 +65,12 @@ public class Product {
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
+    private String brand;
+
+    private String brandOrigin;
+
+    private String brandOriginCode;
+
     public Product() {
     }
 
@@ -87,6 +93,17 @@ public class Product {
         this.isDeal = isDeal;
         this.primaryImage = primaryImage;
         this.category = category;
+    }
+
+    public Product(String name, String slug, String description, BigDecimal price, BigDecimal oldPrice,
+                   Integer discountPercent, Double rating, Integer reviewCount, Integer stockQuantity,
+                   Boolean isFeatured, Boolean isNewArrival, Boolean isBestSeller, Boolean isDeal,
+                   String primaryImage, Category category, String brand, String brandOrigin, String brandOriginCode) {
+        this(name, slug, description, price, oldPrice, discountPercent, rating, reviewCount, stockQuantity,
+             isFeatured, isNewArrival, isBestSeller, isDeal, primaryImage, category);
+        this.brand = brand;
+        this.brandOrigin = brandOrigin;
+        this.brandOriginCode = brandOriginCode;
     }
 
     public Long getId() {
@@ -239,5 +256,29 @@ public class Product {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getBrandOrigin() {
+        return brandOrigin;
+    }
+
+    public void setBrandOrigin(String brandOrigin) {
+        this.brandOrigin = brandOrigin;
+    }
+
+    public String getBrandOriginCode() {
+        return brandOriginCode;
+    }
+
+    public void setBrandOriginCode(String brandOriginCode) {
+        this.brandOriginCode = brandOriginCode;
     }
 }
